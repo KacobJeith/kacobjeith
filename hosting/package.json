@@ -18,16 +18,17 @@
     "build": "npm run copy-files && webpack --config webpack.production.js",
     "copy-files": "babel ./src/assets/ --out-dir ./dist/src/assets/ --copy-files",
     "dev": "set NODE_ENV=development && webpack-dev-server --config webpack.dev.js --hot --watch",
-    "start": "babel-node src/server.js",
+    "start": "firebase serve",
     "tbs": "npm run test && npm run bs",
     "bs": "set NODE_ENV=production && npm run build && firebase serve",
     "ts": "npm run test && npm run start",
-    "deploy": "set NODE_ENV=production &&npm run build && firebase deploy --only hosting"
+    "deploy": "set NODE_ENV=production && npm run build && firebase deploy --only hosting"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
     "email-validator": "^2.0.3",
     "firebase": "^4.3.0",
+    "firebase-functions": "^2.1.0",
     "firebaseui": "^2.3.0",
     "gsap": "^1.20.4",
     "immutable": "^3.8.1",
@@ -73,7 +74,7 @@
     "style-loader": "^0.13.1",
     "sw-precache-webpack-plugin": "^0.11.5",
     "uglifyjs-webpack-plugin": "^1.2.4",
-    "webpack": "^4.2.0",
+    "webpack": "^4.5.0",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cli": "^2.0.13",
     "webpack-dev-middleware": "^3.1.0",
