@@ -3,7 +3,6 @@ import Immutable from 'immutable'
 import 'babel-polyfill'
 import { initialState } from '../index'
 import * as actions from './actions'
-import * as shopify from '../shopify/Shopify'
 import * as async from './async'
 
 export default function(state = initialState, action) {
@@ -13,15 +12,6 @@ export default function(state = initialState, action) {
       import(/* webpackChunkName: "firebaseAuth" */ '../firebase/FirebaseAuth').then((auth) => auth.handleLogin());
 
       return state
-    case 'POPULATE_SHOPIFY' :
-
-        var newState = Immutable.Map(state.shopify).toJS();
-
-        for (var i = 0; i < action.products.length; i++){
-          newState[action.products[i].variants[0].id] = action.products[i];
-        }
-
-      return Immutable.Map(state).set('shopify', newState).toJS()
 
     case 'POPULATE_COLLECTIONS' :
 
@@ -39,40 +29,8 @@ export default function(state = initialState, action) {
 
       return Immutable.Map(state).set('checkoutID', action.checkoutID).toJS()
 
-    case 'SET_CHECKOUT' :
-
-      shopify.retrieveCheckout(action.checkoutID);
-
-      return Immutable.Map(state).set('checkoutID', action.checkoutID).toJS()
-
-    case 'ADD_PRODUCT_TO_CART' :
-
-      shopify.AddProductToCart(state.checkoutID, state.shopify[action.productID]);
-
-      return Immutable.Map(state).set('itemsInCart', state.itemsInCart += 1).toJS();
-
-    case 'UPDATE_QUANTITY_IN_CART' :
-
-      if (parseInt(action.newQuantity) > 0) {
-          shopify.UpdateQuantityInCart(state.checkoutID, action.lineItemID,  parseInt(action.newQuantity));
-      } else {
-
-          var newState = JSON.parse(JSON.stringify(state.shoppingCart))//Object.assign(state.shoppingCart);
-
-        for (var i in state.shoppingCart.lineItems) {
-
-          if ( state.shoppingCart.lineItems[i].id == action.lineItemID) {
-            newState.lineItems[i].quantity = 0;
-            return Immutable.Map(state).set('shoppingCart', newState).toJS()
-          }
-        }
-      }
-
       return state
 
-    case 'REMOVE_PRODUCT_FROM_CART' :
-
-      shopify.RemoveProductFromCart(state.checkoutID, action.variantID)
 
       return state
 
@@ -113,19 +71,6 @@ export default function(state = initialState, action) {
 
       return Immutable.Map(state).set('cartContext', newCartContext).toJS()
 
-    case 'COMPLETE_CHECKOUT' :
-
-      for (var i in state.shoppingCart.lineItems) {
-        if (state.shoppingCart.lineItems[i].quantity == 0) {
-          shopify.RemoveProductFromCart(state.checkoutID, state.shoppingCart.lineItems[i].id)
-        }
-      }
-
-      const checkoutID = state.shoppingCart.id;
-
-      import(/* webpackChunkName: "firebaseDatabase" */ '../firebase/FirebaseDatabase').then((database) => database.pushCartToFulfillmentQueue(checkoutID, state.cartContext));
-
-      return state
 
     case 'SCROLL':
 

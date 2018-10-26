@@ -5,7 +5,6 @@ import { createStore, applyMiddleware } from 'redux'
 import reducers from './redux/reducers'
 import App from './components/App'
 import thunk from 'redux-thunk'
-import * as shopify from './shopify/Shopify'
 import WebFont from 'webfontloader'
 import * as GoogleAnalytics from './GoogleAnalytics'
 
@@ -21,7 +20,6 @@ require('./service-worker-registration.js');
 GoogleAnalytics.initialize();
 
 const startState = {
-  shopify: {},
   scrollPosition: 0,
   webGLStatus: false,
   loginStatus: false,
@@ -52,8 +50,4 @@ render(
 
   document.getElementById('root')
 );
-
-// import(/* webpackChunkName: "firebaseAuth" */ './firebase/FirebaseAuth').then((auth) => auth.initializeFirebase());
-// shopify.InitializeShopify();
-
 
