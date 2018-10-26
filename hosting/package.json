@@ -1,15 +1,15 @@
 {
-  "name": "Heep_Website",
+  "name": "kacobjeith",
   "sideEffects": false,
   "version": "0.0.0",
   "private": false,
   "license": "see LICENSE file",
-  "description": "Web Store and landing page for people interested in Heep",
+  "description": "Personal website and dev sandbox for random projects",
   "author": "kacobjeith",
   "bugs": {
     "url": ""
   },
-  "homepage": "heep.io",
+  "homepage": "jacobkeith.com",
   "engines": {
     "node": "8.9.4"
   },
