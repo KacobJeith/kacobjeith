@@ -15,31 +15,38 @@ const Theme = createMuiTheme({
   },
   typography: {
     display1: {
+      // color: "rgba(0, 0, 0, 1.0)",
+      color: "#3BDE35",
       fontFamily: `"Fjalla One", "Roboto", "Helvetica", "Arial", sans-serif`,
       textTransform: 'uppercase',
       fontSize: '3rem'
     },
     headline: {
-      color: "rgba(0, 0, 0, 0.6)",
+      // color: "rgba(0, 0, 0, 1.0)",
+      color: "#3BDE35",
       fontFamily: `"Fjalla One", "Roboto", "Helvetica", "Arial", sans-serif`,
       textTransform: 'uppercase',
       fontSize: '2.2rem'
     },
     title: {
-      color: "rgba(0, 0, 0, 0.6)",
+      // color: "rgba(0, 0, 0, 1.0)",
+      color: "#3BDE35",
       fontFamily: `"Fjalla One", "Roboto", "Helvetica", "Arial", sans-serif`,
       textTransform: 'uppercase',
       fontSize: '1.5rem'
     },
     subheading: {
-      color: "rgba(0, 0, 0, 0.6)",
+      // color: "rgba(0, 0, 0, 1.0)",
+      color: "#3BDE35",
       fontSize: '1.3rem'
     },
     body2: {
-      color: "rgba(0, 0, 0, 0.7)"
+      // color: "rgba(0, 0, 0, 1.0)"
+      color: "#3BDE35",
     },
     body1: {
-      color: "rgba(0, 0, 0, 0.7)",
+      // color: "rgba(0, 0, 0, 1.0)",
+      color: "#3BDE35",
       fontSize: '1.2rem'
     },
   },

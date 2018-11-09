@@ -4,28 +4,16 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as Actions from '../redux/actions'
 import AsyncComponent from './AsyncComponent'
-
-
-const Landing = () => <AsyncComponent moduleProvider={() => import(
-	/* webpackChunkName: "landing" */
-  	/* webpackMode: "lazy" */
-  	'./pages/LandingIIOT')} />
-
-
-
-const Technology = () => <AsyncComponent moduleProvider={() => import(
-	/* webpackChunkName: "iiot" */
-  	/* webpackMode: "lazy" */
-  	'./pages/iiot')} />
-
-const diy = () => <AsyncComponent moduleProvider={() => import(
-	/* webpackChunkName: "diy" */
-  	/* webpackMode: "lazy" */
-  	'./pages/diy')} />
-
-
+import Bio from './about/BioBlurb'
 import Theme from './Theme'
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
+
+//
+//const Bio = () => <AsyncComponent moduleProvider={() => import(
+//	/* webpackChunkName: "bio" */
+//  	/* webpackMode: "lazy" */
+//  	'./about/about')} />
+
 
 const mapStateToProps = (state) => ({
 	loginStatus: state.loginStatus,
@@ -50,6 +38,7 @@ class App extends React.Component {
       style: {
         height: 60,
         width: '100%',
+        color: 'white'
       }
     }
 
@@ -69,7 +58,7 @@ class App extends React.Component {
 					marginTop: 0,
 					display: "flex",
 					flexDirection: 'column',
-					background: "linear-gradient(0deg, #040404d1, #2b1486 70%, #020202)"
+					background: "linear-gradient(0deg, #000000, #000000 70%, #000000)"
 				}
 
 			},
@@ -87,7 +76,7 @@ class App extends React.Component {
 							<div {...inputs.container}>
 								<div {...inputs.content}>
                   					{this.topSpacer()}
-									
+									<Bio/>
 								</div>
 						    </div>
 				    </MuiThemeProvider>

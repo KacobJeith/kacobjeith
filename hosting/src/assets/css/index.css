@@ -5,3 +5,25 @@
 .wf-inactive {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+@-webkit-keyframes bounce {
+    0% { transform: rotate(0deg) translate(0, 0); }
+    100% { transform: rotate(10deg) translate(0, -50px); }
+}
+@keyframes bounce {
+    0% { transform: rotate(0deg) translate(0, 0); }
+    100% { transform: rotate(10deg) translate(0, -50px); }
+}
+
+
+
